@@ -1,11 +1,22 @@
-<div class="container">
-
-    <div id="tela1">
-        <img src="sicredi.png" alt="Sicredi" class="logo">
-        <div class="ola">Olá, Guilherme!</div>
-        <div class="detalhes_conta">
-            CPF: XXX.XXX.XXX-XX <br>
-            Cooperativa/Conta: XXXX-X
-        </div>
-        <div class="btn-avancar" onclick="mudarTela()">Avançar</div>
-    </div>
+<div id="centro">
+    <p class="text-blue-600 font-bold mb-3"><i class="pi pi-discord"></i>Informe suas credenciais de acesso</p>
+    <table>
+      <tr>
+        <td>CPF/CNPJ:</td>
+        <td>
+          <input pInputText type="text">
+        </td>
+      </tr>
+      <tr>
+        <td>Senha:</td>
+        <td>
+          <input pInputText type="password" name="" id="">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button pButton (click)="fazerLogin()">Entrar</button>
+        </td>
+      </tr>
+    </table>
+</div>
