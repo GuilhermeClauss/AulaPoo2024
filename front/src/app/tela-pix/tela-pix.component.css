@@ -1,0 +1,84 @@
+#telaPix {
+    padding: 20px;
+}
+
+.opcoes-pix {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.option-card:hover {
+    transform: scale(1.05);
+}
+
+.option-icon {
+    width: 40px;
+}
+
+.icon {
+    width: 40px;
+}
+
+.subtitulo {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.pix-content {
+    margin-bottom: 20px;
+}
+
+.input-text {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.btn-confirmar {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-confirmar:hover {
+    background-color: #45a049;
+}
+
+.btn-voltar {
+    background-color: #ddd;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-voltar:hover {
+    background-color: #ccc;
+}

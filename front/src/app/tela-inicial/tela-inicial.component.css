@@ -1,5 +1,5 @@
 #tela2 {
-    display: none; /* Mantemos oculto até a ação de mudar a tela */
+    display: block;
     padding: 20px;
 }
 
@@ -40,6 +40,11 @@
 .user-welcome {
     font-size: 16px;
     color: #666666;
+}
+
+.ultimo-acesso {
+    font-size: 12px;
+    color: #999;
 }
 
 .opcoes {

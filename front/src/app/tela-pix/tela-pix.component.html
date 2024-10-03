@@ -1,0 +1,24 @@
+<div id="telaPix">
+    <h2>Transações Pix</h2>
+    <div class="opcoes-pix">
+        <div class="option-card" onclick="enviarPix()">
+            <div class="option-icon">
+                <img src="enviopix.png" alt="Enviar Pix" class="icon">
+            </div>
+            <div class="option-label">Enviar Pix</div>
+        </div>
+
+        <div class="option-card" onclick="receberPix()">
+            <div class="option-icon">
+                <img src="recebopix.png" alt="Receber Pix" class="icon">
+            </div>
+            <div class="option-label">Receber Pix</div>
+        </div>
+    </div>
+
+    <div id="tela-pix-opcoes" style="display: none;">
+        <h2 class="subtitulo"></h2>
+        <div class="pix-content"></div>
+        <button class="btn-voltar" onclick="voltarTelaPix()">Voltar</button>
+    </div>
+</div>
