@@ -1,34 +1,22 @@
-<div class="simulation-container">
-  <form [formGroup]="cdbForm" (ngSubmit)="onSubmit()">
-    <h1 class="simulation-title">Simulador de CDB</h1>
+<header class="cabecalho">
+  <h1 class="cabecalho__conteudo">Investimentos</h1>
+</header>
 
-    <div class="form-group">
-      <label for="aporteMensal">Aporte Mensal (R$):</label>
-      <input
-        type="number"
-        id="aporteMensal"
-        formControlName="aporteMensal"
-        class="form-control"
-        placeholder="Informe o valor"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="dataResgate">Data Estimada de Resgate:</label>
-      <input
-        type="date"
-        id="dataResgate"
-        formControlName="dataResgate"
-        class="form-control"
-      />
-    </div>
-
-    <button type="submit" class="btn-simulate" [disabled]="cdbForm.invalid">
-      Simular
-    </button>
-
-    <div *ngIf="resultadoRendimento !== null" class="result">
-      <h3 class="resultadoRendimento">Rendimento Estimado: R$ {{ resultadoRendimento | number:'1.2-2' }}</h3>
-    </div>
+<div class="investimentos-container">
+  <h2>Simulador de Investimentos</h2>
+  <form class="simulador-form" (submit)="calcularRendimento(); $event.preventDefault()">
+      <div class="form-group">
+          <label for="aporteMensal">Valor de Aporte Mensal:</label>
+          <input type="number" id="aporteMensal" [(ngModel)]="aporteMensal" name="aporteMensal" required>
+      </div>
+      <div class="form-group">
+          <label for="dataResgate">Data Estimada de Resgate:</label>
+          <input type="date" id="dataResgate" [(ngModel)]="dataResgate" name="dataResgate" required>
+      </div>
+      <button type="submit">Calcular</button>
   </form>
+
+  <div *ngIf="valorFinal !== null" class="resultado">
+      <h3>Valor Estimado do Rendimento: R$ {{ valorFinal | number: '1.2-2' }}</h3>
+  </div>
 </div>

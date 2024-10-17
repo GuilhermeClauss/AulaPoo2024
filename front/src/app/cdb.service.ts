@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CdbService {
 
-  private TAXA_FIXA = 0.009;
+  private TAXA_FIXA = 0.009;  // Exemplo de taxa fixa para o cálculo
 
   constructor() {}
 
@@ -26,3 +26,4 @@ export class CdbService {
     return Math.floor(diffMeses);
   }
 }
+

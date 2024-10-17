@@ -1,33 +1,40 @@
-import { CommonModule, DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CdbService } from '../cdb.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-calculo-cdb',
   standalone: true,
-  imports: [CommonModule, DecimalPipe, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule], 
   templateUrl: './calculo-cdb.component.html',
   styleUrls: ['./calculo-cdb.component.css']
 })
 export class CalculoCdbComponent {
-  cdbForm: FormGroup;
-  resultadoRendimento: number | null = null;
+  aporteMensal: number = 0;
+  dataResgate: string = '';
+  valorFinal: number | null = null;
+  taxaMensal: number = 0.009;  // Taxa mensal fixa para o cálculo
 
-  constructor(private fb: FormBuilder, private cdbService: CdbService) {
-    this.cdbForm = this.fb.group({
-      aporteMensal: ['', [Validators.required, Validators.min(1)]],
-      dataResgate: ['', Validators.required]
-    });
+  constructor(private router: Router) {}
+
+  voltar() {
+    this.router.navigate(['/tela-inicial']);
   }
 
-  onSubmit() {
-    if (this.cdbForm.valid) {
-      const aporteMensal = this.cdbForm.value.aporteMensal;
-      const dataResgate = new Date(this.cdbForm.value.dataResgate);
+  calcularRendimento() {
+    const hoje = new Date();
+    const resgate = new Date(this.dataResgate);
+    const meses = (resgate.getFullYear() - hoje.getFullYear()) * 12 + (resgate.getMonth() - hoje.getMonth());
 
-      const meses = this.cdbService.calcularMeses(dataResgate);
-      this.resultadoRendimento = this.cdbService.calcularRendimento(aporteMensal, meses);
+    if (meses > 0) {
+      let montante = 0;
+      for (let i = 0; i < meses; i++) {
+        montante = (montante + this.aporteMensal) * (1 + this.taxaMensal);
+      }
+      this.valorFinal = montante;
+    } else {
+      this.valorFinal = 0;
     }
   }
 }
