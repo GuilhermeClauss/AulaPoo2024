@@ -16,4 +16,11 @@ export class TelaInicialComponent {
   public fazerumpix() {
     this.router.navigate(['/tela-pix']);
     }
+  public receberumpix() {
+    this.router.navigate(['/tela-pix']);
+    }
+  public simularCdb() {
+    this.router.navigate(['/tela-cdb']);
+    }
+    
 }
